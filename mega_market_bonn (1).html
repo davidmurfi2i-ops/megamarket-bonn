@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEGA MARKET BONN – Bulgarische Spezialitäten</title>
+<meta name="description" content="MEGA MARKET BONN – Bulgarische Lebensmittel, frische Spezialitäten und traditionelle Produkte in Bonn.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brandGreen: '#10b981',
+          brandGreenDark: '#059669',
+          brandGreenLight: '#d1fae5',
+          brandYellow: '#fbbf24',
+          brandRed: '#ef4444',
+          darkBg: '#0f172a',
+        },
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+  .dark-glass {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(51, 65, 85, 0.8);
+  }
+</style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brandGreen selection:text-white">
+
+<div class="bg-slate-900 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide flex justify-center items-center gap-2">
+  <span>🇧🇬</span> <span data-i18n="topBar">Bulgarische Spezialitäten & Frische in Bonn · MEGA MARKET BONN</span> <span>🌿</span>
+</div>
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="#start" class="flex items-center gap-3 group">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brandGreen to-emerald-400 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+        M
+      </div>
+      <div>
+        <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 block leading-none">
+          MEGA <span class="text-brandGreen">MARKET</span>
+        </span>
+        <span class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mt-1 block">Bonn • Bulgarische Spezialitäten</span>
+      </div>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-600">
+      <a href="#angebote" class="hover:text-brandGreen transition-colors" data-i18n="navOffers">Angebote</a>
+      <a href="#sortiment" class="hover:text-brandGreen transition-colors" data-i18n="navAssortment">Sortiment</a>
+      <a href="#ueber-uns" class="hover:text-brandGreen transition-colors" data-i18n="navAbout">Über uns</a>
+      <a href="#kontakt" class="hover:text-brandGreen transition-colors" data-i18n="navContact">Kontakt</a>
+    </nav>
+
+    <!-- Right Actions: Language Switcher & Route Button -->
+    <div class="flex items-center gap-3">
+      <!-- Language Switcher -->
+      <div class="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200">
+        <button onclick="setLanguage('de')" id="lang-de" class="px-3 py-1.5 text-xs font-bold rounded-lg transition-all bg-white text-slate-900 shadow-sm">DE</button>
+        <button onclick="setLanguage('bg')" id="lang-bg" class="px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-500 hover:text-slate-900">BG</button>
+      </div>
+
+      <!-- Route Button -->
+      <a href="https://maps.app.goo.gl/nqEcZFJ3caN6BxLo7" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 bg-brandGreen hover:bg-brandGreenDark text-white font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-brandGreen/20 transition-all hover:-translate-y-0.5 text-sm">
+        <span>📍</span> <span data-i18n="btnRoute">Anfahrt</span>
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors" aria-label="Menü">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-xl py-6 px-6 flex flex-col gap-4 animate-fadeIn">
+    <a href="#angebote" onclick="closeMobileMenu()" class="text-base font-bold text-slate-800 hover:text-brandGreen" data-i18n="navOffers">Angebote</a>
+    <a href="#sortiment" onclick="closeMobileMenu()" class="text-base font-bold text-slate-800 hover:text-brandGreen" data-i18n="navAssortment">Sortiment</a>
+    <a href="#ueber-uns" onclick="closeMobileMenu()" class="text-base font-bold text-slate-800 hover:text-brandGreen" data-i18n="navAbout">Über uns</a>
+    <a href="#kontakt" onclick="closeMobileMenu()" class="text-base font-bold text-slate-800 hover:text-brandGreen" data-i18n="navContact">Kontakt</a>
+    <a href="https://maps.app.goo.gl/nqEcZFJ3caN6BxLo7" target="_blank" rel="noopener" class="w-full text-center bg-brandGreen text-white font-bold py-3 rounded-xl shadow-md">
+      📍 <span data-i18n="btnRoute">Anfahrt öffnen</span>
+    </a>
+  </div>
+</header>
+
+<main id="start">
+
+<section class="relative overflow-hidden pt-16 pb-24 lg:pt-28 lg:pb-36 bg-gradient-to-b from-emerald-50/60 via-white to-slate-50">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-r from-brandGreen/10 to-emerald-200/20 blur-3xl -z-10 rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="inline-flex items-center gap-2 bg-emerald-100 text-brandGreenDark px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-6 shadow-sm">
+      <span>🌿</span> <span data-i18n="heroBadge">Frische, Qualität & Tradition</span>
+    </div>
+    
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
+      MEGA MARKET <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandGreen to-emerald-600">BONN</span>
+    </h1>
+    
+    <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed mb-10" data-i18n="heroSubtitle">
+      Entdecke die authentische Vielfalt bulgarischer Lebensmittel, frischer Spezialitäten und traditioneller Köstlichkeiten direkt in deiner Nähe.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#angebote" class="bg-brandGreen hover:bg-brandGreenDark text-white font-bold text-base px-8 py-4 rounded-2xl shadow-xl shadow-brandGreen/25 transition-all hover:-translate-y-0.5 flex items-center gap-3">
+        <span>🔥</span> <span data-i18n="heroBtnOffers">Aktuelle Angebote</span>
+      </a>
+      <a href="https://maps.app.goo.gl/nqEcZFJ3caN6BxLo7" target="_blank" rel="noopener" class="bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-200 font-bold text-base px-8 py-4 rounded-2xl shadow-sm transition-all hover:-translate-y-0.5 flex items-center gap-3">
+        <span>📍</span> <span data-i18n="heroBtnMap">Standort auf Karte</span>
+      </a>
+    </div>
+
+    <!-- Highlight Cards Ribbon -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+      <div class="glass-card p-5 rounded-2xl text-left shadow-sm">
+        <div class="text-2xl mb-2">🧀</div>
+        <div class="font-extrabold text-slate-900 text-sm" data-i18n="ribbon1Title">Original Käse</div>
+        <div class="text-xs text-slate-500 mt-0.5" data-i18n="ribbon1Sub">Schaf & Kuh</div>
+      </div>
+      <div class="glass-card p-5 rounded-2xl text-left shadow-sm">
+        <div class="text-2xl mb-2">🥩</div>
+        <div class="font-extrabold text-slate-900 text-sm" data-i18n="ribbon2Title">Wurstwaren</div>
+        <div class="text-xs text-slate-500 mt-0.5" data-i18n="ribbon2Sub">Traditionell gewürzt</div>
+      </div>
+      <div class="glass-card p-5 rounded-2xl text-left shadow-sm">
+        <div class="text-2xl mb-2">🥐</div>
+        <div class="font-extrabold text-slate-900 text-sm" data-i18n="ribbon3Title">Banitsa & Gebäck</div>
+        <div class="text-xs text-slate-500 mt-0.5" data-i18n="ribbon3Sub">Frisch & knusprig</div>
+      </div>
+      <div class="glass-card p-5 rounded-2xl text-left shadow-sm">
+        <div class="text-2xl mb-2">🥬</div>
+        <div class="font-extrabold text-slate-900 text-sm" data-i18n="ribbon4Title">Frische Produkte</div>
+        <div class="text-xs text-slate-500 mt-0.5" data-i18n="ribbon4Sub">Saisonal & ausgewählt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="angebote" class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-r from-brandGreen via-emerald-600 to-emerald-700 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+      
+      <div class="space-y-3 text-center lg:text-left z-10">
+        <span class="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-extrabold tracking-wider uppercase" data-i18n="offersBadge">Wöchentliche Aktionen</span>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight" data-i18n="offersTitle">🔥 Aktuelle Angebote im Markt</h2>
+        <p class="text-emerald-50 text-base max-w-xl" data-i18n="offersDesc">Besuche unseren Markt in Bonn und sichere dir unsere wöchentlichen Highlights, Top-Rabatte und frische Aktionsware.</p>
+      </div>
+
+      <div class="z-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <a href="#kontakt" class="bg-white text-emerald-800 hover:bg-emerald-50 font-black px-8 py-4 rounded-2xl shadow-lg transition-all text-center" data-i18n="offersBtnStore">
+          Vor Ort entdecken
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sortiment" class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4" data-i18n="assortmentTitle">Unser Sortiment</h2>
+      <p class="text-slate-600 text-lg" data-i18n="assortmentSub">Echte bulgarische Lebensmittel für höchste Ansprüche und echten Geschmack.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🥩</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat1Title">Wurst & Fleisch</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat1Desc">Bulgarische Wurstwaren, traditionelle Salami, Lukanka und erlesene Fleischspezialitäten.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🧀</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat2Title">Käse & Milchprodukte</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat2Desc">Original Schaf-, Kuh- und Büffelkäse (Sirene), Kashkaval sowie feiner Joghurt.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🥐</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat3Title">Banitsa & Gebäck</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat3Desc">Traditionelle bulgarische Teigwaren, Strudel, Teigblätter und frisches Gebäck.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🧊</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat4Title">Tiefkühlprodukte</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat4Desc">Eine riesige Auswahl beliebter Tiefkühlprodukte für die schnelle und authentische Küche.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🥫</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat5Title">Lutenitsa & Konserven</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat5Desc">Hausgemachte Lutenitsa, Ajvar, eingelegtes Gemüse und traditionelle Konserven.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🍫</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat6Title">Süßwaren</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat6Desc">Bulgarische Schokolade, Kekse, Waffeln (Borovets) und beliebte Süßigkeiten.</p>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🥬</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat7Title">Obst & Gemüse</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat7Desc">Frische, knackige Produkte und saisonale Highlights direkt für deinen Einkauf.</p>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="glass-card p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-brandGreen group">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🎁</div>
+        <h3 class="text-xl font-extrabold text-slate-900 mb-2" data-i18n="cat8Title">Souvenirs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="cat8Desc">Authentische bulgarische Souvenirs, Geschenkideen und traditionelle Handwerkskunst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ueber-uns" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+  
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 bg-emerald-900/60 text-emerald-300 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-6 border border-emerald-700/50">
+      <span>🇧🇬</span> <span data-i18n="aboutBadge">Über unseren Markt</span>
+    </div>
+
+    <h2 class="text-3xl sm:text-5xl font-black tracking-tight mb-8" data-i18n="aboutTitle">Ein Stück Bulgarien mitten in Bonn</h2>
+    
+    <p class="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-10" data-i18n="aboutDesc">
+      Bei MEGA MARKET BONN steht Qualität, Frische und Gastfreundschaft an erster Stelle. Wir bringen die traditionellen Aromen und besten Produkte aus der Heimat direkt zu dir nach Bonn – für den täglichen Genuss und besondere Momente mit Familie und Freunden.
+    </p>
+
+    <div class="inline-flex items-center gap-3 bg-slate-800/80 border border-slate-700 px-6 py-3 rounded-2xl text-emerald-400 font-bold text-sm">
+      <span>🌿</span> <span data-i18n="aboutPledge">Herzlich willkommen bei uns im Markt!</span>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4" data-i18n="contactTitle">Kontakt & Anfahrt</h2>
+      <p class="text-slate-600 text-lg" data-i18n="contactSub">Wir freuen uns auf deinen Besuch im MEGA MARKET BONN.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Address Card -->
+      <div class="bg-slate-50 border border-slate-200/80 p-8 rounded-3xl shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-xl mb-6">📍</div>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-3" data-i18n="addrTitle">Adresse</h3>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            <strong class="text-slate-900 block font-black">MEGA MARKET BONN</strong>
+            Von-Guericke-Allee 21<br>
+            53125 Bonn
+          </p>
+        </div>
+        <a href="https://maps.app.goo.gl/nqEcZFJ3caN6BxLo7" target="_blank" rel="noopener" class="w-full text-center bg-brandGreen hover:bg-brandGreenDark text-white font-bold py-3.5 rounded-xl shadow-md transition-all">
+          <span data-i18n="addrBtn">Route starten</span>
+        </a>
+      </div>
+
+      <!-- Opening Hours Card -->
+      <div class="bg-slate-50 border border-slate-200/80 p-8 rounded-3xl shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-xl mb-6">🕐</div>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-3" data-i18n="hoursTitle">Öffnungszeiten</h3>
+          <div class="text-slate-600 space-y-2 text-sm">
+            <div class="flex justify-between border-b border-slate-200 pb-2">
+              <span class="font-medium" data-i18n="hoursMonLabel">Montag:</span>
+              <span class="font-bold text-slate-900" data-i18n="hoursMonTime">12:00 – 19:00 Uhr</span>
+            </div>
+            <div class="flex justify-between border-b border-slate-200 pb-2">
+              <span class="font-medium" data-i18n="hoursDays">Dienstag – Samstag:</span>
+              <span class="font-bold text-slate-900" data-i18n="hoursDaysTime">10:00 – 19:00 Uhr</span>
+            </div>
+            <div class="flex justify-between pt-1">
+              <span class="font-medium" data-i18n="hoursSun">Sonntag:</span>
+              <span class="font-bold text-slate-900" data-i18n="hoursClosed">Geschlossen</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 text-xs text-slate-500 bg-emerald-50 text-emerald-800 p-3 rounded-xl border border-emerald-100 font-medium text-center" data-i18n="hoursNotice">
+          Wir haben täglich frische Backwaren für dich!
+        </div>
+      </div>
+
+      <!-- Social Media Card mit Facebook-Link -->
+      <div class="bg-slate-50 border border-slate-200/80 p-8 rounded-3xl shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-xl mb-6 text-blue-600 font-bold">f</div>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-3" data-i18n="socialTitle">Social Media</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="socialDesc">
+            Folge uns auf Facebook, um keine Angebote, Neuigkeiten und Aktionen zu verpassen.
+          </p>
+        </div>
+        <a href="https://www.facebook.com/profile.php?id=100091658434647" target="_blank" rel="noopener" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+          <span>🌐</span> <span data-i18n="socialBtn">Facebook besuchen</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-slate-900 text-white pt-16 pb-12 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+    <div class="flex items-center justify-center gap-2 text-xl font-black">
+      <span>MEGA MARKET <span class="text-brandGreen">BONN</span></span>
+    </div>
+    
+    <p class="text-slate-400 text-sm max-w-md mx-auto" data-i18n="footerSub">
+      Dein Fachmarkt für bulgarische Spezialitäten, Lebensmittel und Frische in Bonn. 🇧🇬
+    </p>
+
+    <div class="flex justify-center gap-6 text-sm font-semibold text-slate-400">
+      <a href="https://www.facebook.com/profile.php?id=100091658434647" target="_blank" rel="noopener" class="hover:text-white transition-colors" data-i18n="footerFacebook">Facebook</a>
+      <a href="https://maps.app.goo.gl/nqEcZFJ3caN6BxLo7" target="_blank" rel="noopener" class="hover:text-white transition-colors" data-i18n="footerMap">Anfahrt</a>
+    </div>
+
+    <div class="pt-8 border-t border-slate-800 text-xs text-slate-500">
+      © 2026 MEGA MARKET BONN. <span data-i18n="footerRights">Alle Rechte vorbehalten.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    de: {
+      topBar: "Bulgarische Spezialitäten & Frische in Bonn · MEGA MARKET BONN",
+      navOffers: "Angebote",
+      navAssortment: "Sortiment",
+      navAbout: "Über uns",
+      navContact: "Kontakt",
+      btnRoute: "Anfahrt",
+      heroBadge: "Frische, Qualität & Tradition",
+      heroSubtitle: "Entdecke die authentische Vielfalt bulgarischer Lebensmittel, frischer Spezialitäten und traditioneller Köstlichkeiten direkt in deiner Nähe.",
+      heroBtnOffers: "Aktuelle Angebote",
+      heroBtnMap: "Standort auf Karte",
+      ribbon1Title: "Original Käse",
+      ribbon1Sub: "Schaf & Kuh",
+      ribbon2Title: "Wurstwaren",
+      ribbon2Sub: "Traditionell gewürzt",
+      ribbon3Title: "Banitsa & Gebäck",
+      ribbon3Sub: "Frisch & knusprig",
+      ribbon4Title: "Frische Produkte",
+      ribbon4Sub: "Saisonal & ausgewählt",
+      offersBadge: "Wöchentliche Aktionen",
+      offersTitle: "🔥 Aktuelle Angebote im Markt",
+      offersDesc: "Besuche unseren Markt in Bonn und sichere dir unsere wöchentlichen Highlights, Top-Rabatte und frische Aktionsware.",
+      offersBtnStore: "Vor Ort entdecken",
+      assortmentTitle: "Unser Sortiment",
+      assortmentSub: "Echte bulgarische Lebensmittel für höchste Ansprüche und echten Geschmack.",
+      cat1Title: "Wurst & Fleisch",
+      cat1Desc: "Bulgarische Wurstwaren, traditionelle Salami, Lukanka und erlesene Fleischspezialitäten.",
+      cat2Title: "Käse & Milchprodukte",
+      cat2Desc: "Original Schaf-, Kuh- und Büffelkäse (Sirene), Kashkaval sowie feiner Joghurt.",
+      cat3Title: "Banitsa & Gebäck",
+      cat3Desc: "Traditionelle bulgarische Teigwaren, Strudel, Teigblätter und frisches Gebäck.",
+      cat4Title: "Tiefkühlprodukte",
+      cat4Desc: "Eine riesige Auswahl beliebter Tiefkühlprodukte für die schnelle und authentische Küche.",
+      cat5Title: "Lutenitsa & Konserven",
+      cat5Desc: "Hausgemachte Lutenitsa, Ajvar, eingelegtes Gemüse und traditionelle Konserven.",
+      cat6Title: "Süßwaren",
+      cat6Desc: "Bulgarische Schokolade, Kekse, Waffeln (Borovets) und beliebte Süßigkeiten.",
+      cat7Title: "Obst & Gemüse",
+      cat7Desc: "Frische, knackige Produkte und saisonale Highlights direkt für deinen Einkauf.",
+      cat8Title: "Souvenirs",
+      cat8Desc: "Authentische bulgarische Souvenirs, Geschenkideen und traditionelle Handwerkskunst.",
+      aboutBadge: "Über unseren Markt",
+      aboutTitle: "Ein Stück Bulgarien mitten in Bonn",
+      aboutDesc: "Bei MEGA MARKET BONN steht Qualität, Frische und Gastfreundschaft an erster Stelle. Wir bringen die traditionellen Aromen und besten Produkte aus der Heimat direkt zu dir nach Bonn – für den täglichen Genuss und besondere Momente mit Familie und Freunden.",
+      aboutPledge: "Herzlich willkommen bei uns im Markt!",
+      contactTitle: "Kontakt & Anfahrt",
+      contactSub: "Wir freuen uns auf deinen Besuch im MEGA MARKET BONN.",
+      addrTitle: "Adresse",
+      addrBtn: "Route starten",
+      hoursTitle: "Öffnungszeiten",
+      hoursMonLabel: "Montag:",
+      hoursMonTime: "12:00 – 19:00 Uhr",
+      hoursDays: "Dienstag – Samstag:",
+      hoursDaysTime: "10:00 – 19:00 Uhr",
+      hoursSun: "Sonntag:",
+      hoursClosed: "Geschlossen",
+      hoursNotice: "Wir haben täglich frische Backwaren für dich!",
+      socialTitle: "Social Media",
+      socialDesc: "Folge uns auf Facebook, um keine Angebote, Neuigkeiten und Aktionen zu verpassen.",
+      socialBtn: "Facebook besuchen",
+      footerSub: "Dein Fachmarkt für bulgarische Spezialitäten, Lebensmittel und Frische in Bonn. 🇧🇬",
+      footerFacebook: "Facebook",
+      footerMap: "Anfahrt",
+      footerRights: "Alle Rechte vorbehalten."
+    },
+    bg: {
+      topBar: "Български специалности и свежест в Бон · MEGA MARKET BONN",
+      navOffers: "Оферти",
+      navAssortment: "Асортимент",
+      navAbout: "За нас",
+      navContact: "Контакти",
+      btnRoute: "Маршрут",
+      heroBadge: "Свежест, качество и традиция",
+      heroSubtitle: "Открийте автентичното разнообразие от български храни, пресни специалности и традиционни изкушения точно до вас в Бон.",
+      heroBtnOffers: "Актуални оферти",
+      heroBtnMap: "Виж на картата",
+      ribbon1Title: "Оригинално сирене",
+      ribbon1Sub: "Овче и краве",
+      ribbon2Title: "Колко и месо",
+      ribbon2Sub: "Традиционно подправени",
+      ribbon3Title: "Баница и тестени",
+      ribbon3Sub: "Пресни и хрупкави",
+      ribbon4Title: "Пресни продукти",
+      ribbon4Sub: "Сезонни и подбрани",
+      offersBadge: "Седмични акции",
+      offersTitle: "🔥 Актуални оферти в магазина",
+      offersDesc: "Посетете нашия магазин в Бон и се възползвайте от нашите седмични предложения, топ намаления и прясна стока.",
+      offersBtnStore: "Открий на място",
+      assortmentTitle: "Нашият асортимент",
+      assortmentSub: "Истински български храни за най-високи изисквания и истински вкус.",
+      cat1Title: "Колко и месо",
+      cat1Desc: "Български колбаси, традиционен салам, луканка и избрани месни деликатеси.",
+      cat2Title: "Сирене и млечни",
+      cat2Desc: "Оригинално сирене (овче, краве, биволско), кашкавал, както и отлично кисело мляко.",
+      cat3Title: "Баница и тестени",
+      cat3Desc: "Традиционни български тестени изделия, щрудел, кори за баница и пресни печива.",
+      cat4Title: "Замразени продукти",
+      cat4Desc: "Голям избор от любими замразени храни за бързо и автентично готвене.",
+      cat5Title: "Лютеница и консерви",
+      cat5Desc: "Домашна лютеница, айвар, кисели краставички и традиционни консервирани продукти.",
+      cat6Title: "Сладкиши",
+      cat6Desc: "Български шоколади, бисквити, вафли (Боровец) и любими лакомства.",
+      cat7Title: "Плодове и зеленчуци",
+      cat7Desc: "Пресни, хрупкави стоки и сезонни акценти директно за вашата количка.",
+      cat8Title: "Сувенири",
+      cat8Desc: "Автентични български сувенири, идеи за подаръци и традиционни занаяти.",
+      aboutBadge: "За нашия магазин",
+      aboutTitle: "Малко България в сърцето на Бон",
+      aboutDesc: "В MEGA MARKET BONN качеството, свежестта и гостоприемството са на първо място. Ние носим традиционните вкусове и най-добрите продукти от родината директно при вас в Бон – за ежедневна наслада и специални моменти със семейството и приятелите.",
+      aboutPledge: "Добре дошли в нашия магазин!",
+      contactTitle: "Контакти и маршрут",
+      contactSub: "Очакваме ви на посещение в MEGA MARKET BONN.",
+      addrTitle: "Адрес",
+      addrBtn: "Стартирай маршрут",
+      hoursTitle: "Работно време",
+      hoursMonLabel: "Понеделник:",
+      hoursMonTime: "12:00 – 19:00 ч.",
+      hoursDays: "Вторник – Събота:",
+      hoursDaysTime: "10:00 – 19:00 ч.",
+      hoursSun: "Неделя:",
+      hoursClosed: "Затворено",
+      hoursNotice: "Всеки ден разполагаме с пресни печива!",
+      socialTitle: "Социални мрежи",
+      socialDesc: "Следете ни във Facebook, за да не пропускате оферти, новини и промоции.",
+      socialBtn: "Посети Facebook",
+      footerSub: "Вашият специализиран магазин за български специалности, храни и свежест в Бон. 🇧🇬",
+      footerFacebook: "Facebook",
+      footerMap: "Маршрут",
+      footerRights: "Всички права запазени."
+    }
+  };
+
+  function setLanguage(lang) {
+    // Update active button styling
+    const deBtn = document.getElementById('lang-de');
+    const bgBtn = document.getElementById('lang-bg');
+
+    if (lang === 'de') {
+      deBtn.className = "px-3 py-1.5 text-xs font-bold rounded-lg transition-all bg-white text-slate-900 shadow-sm";
+      bgBtn.className = "px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-500 hover:text-slate-900";
+    } else {
+      bgBtn.className = "px-3 py-1.5 text-xs font-bold rounded-lg transition-all bg-white text-slate-900 shadow-sm";
+      deBtn.className = "px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-500 hover:text-slate-900";
+    }
+
+    // Update document lang attribute
+    document.documentElement.lang = lang;
+
+    // Apply translations
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // Save preference
+    localStorage.setItem('megamarket_lang', lang);
+  }
+
+  // Mobile menu toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  }
+
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.add('hidden');
+  }
+
+  // Check saved language on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('megamarket_lang');
+    if (savedLang && (savedLang === 'de' || savedLang === 'bg')) {
+      setLanguage(savedLang);
+    }
+  });
+</script>
+</body>
+</html>
