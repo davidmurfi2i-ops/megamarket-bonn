@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEGA MARKET BONN | Bulgarische Spezialitäten</title>
+<meta name="description" content="MEGA MARKET BONN – bulgarische Lebensmittel, Spezialitäten, Wurst, Käse, Banitsa, Tiefkühlprodukte, Süßwaren und mehr.">
+<meta name="theme-color" content="#ffd719">
+<style>
+:root{--yellow:#ffd719;--red:#e21b13;--dark:#111820;--cream:#fffdf4;--gray:#666;--shadow:0 10px 30px rgba(0,0,0,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#161616;background:#f7f7f4}
+a{color:inherit}.topbar{background:var(--dark);color:#fff;padding:9px 5%;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px}
+.header{background:var(--yellow);position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.nav{max-width:1250px;margin:auto;min-height:78px;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:1000;font-size:30px;line-height:.9;color:var(--red);white-space:nowrap}.logo span{color:#111}.tag{display:block;font-size:9px;letter-spacing:2px;color:#111;margin-top:7px}
+.menu{display:flex;align-items:center;gap:20px}.menu a{text-decoration:none;font-weight:800}.menu a:hover{color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;text-decoration:none;font-weight:900;border-radius:10px;padding:13px 18px;border:0;cursor:pointer}.btn.yellow{background:var(--yellow);color:#111}.btn.dark{background:var(--dark)}
+.mobileBtn{display:none;background:none;border:0;font-size:30px;cursor:pointer}
+.hero{max-width:1450px;margin:auto;position:relative;overflow:hidden}.hero img{display:block;width:100%;height:auto;min-height:360px;object-fit:cover}.heroOverlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.05) 70%);display:flex;align-items:center;padding:6%}
+.heroCopy{color:#fff;max-width:650px;text-shadow:0 3px 12px #000}.eyebrow{font-weight:900;color:var(--yellow);letter-spacing:2px}.hero h1{font-size:clamp(42px,6vw,82px);line-height:.95;margin:10px 0 18px}.hero p{font-size:clamp(17px,2vw,25px);font-weight:800}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+section{max-width:1250px;margin:auto;padding:65px 5%}.heading{text-align:center;margin-bottom:35px}.heading h2{font-size:clamp(30px,4vw,46px);margin:0 0 10px}.heading p{color:var(--gray);font-size:18px;margin:auto;max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.2s}.card:hover{transform:translateY(-4px)}.visual{height:180px;display:flex;align-items:center;justify-content:center;font-size:70px;background:linear-gradient(135deg,#ffe97a,#e21b13)}.card:nth-child(2) .visual{background:linear-gradient(135deg,#fff,#ffd719)}.card:nth-child(3) .visual{background:linear-gradient(135deg,#ffd719,#f39a25)}.card:nth-child(4) .visual{background:linear-gradient(135deg,#dff1ff,#7db7dc)}.card h3{font-size:21px;margin:18px 18px 8px}.card p{color:var(--gray);margin:0 18px 20px;line-height:1.5}
+.offer{background:var(--red);color:#fff;border-radius:22px;padding:35px;display:flex;align-items:center;justify-content:space-between;gap:25px;box-shadow:var(--shadow)}.offer h2{font-size:34px;margin:0 0 8px}.offer p{margin:0;font-size:17px}.offer .btn{background:var(--yellow);color:#111;white-space:nowrap}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:#fff;border-radius:16px;padding:24px;box-shadow:var(--shadow);border-top:5px solid var(--yellow)}.product strong{font-size:20px}.product p{color:var(--gray);line-height:1.5}
+.about{background:var(--dark);color:#fff;max-width:none}.aboutInner{max-width:1250px;margin:auto;padding:65px 5%;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}.about h2{font-size:42px;margin-top:0}.about p{font-size:18px;line-height:1.7;color:#ddd}.bulgarian{font-size:70px;text-align:center}
+.contactGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.contact{background:#fff;border-radius:16px;padding:25px;box-shadow:var(--shadow)}.contact .icon{font-size:34px}.contact h3{margin:12px 0 8px}.contact p{color:var(--gray);line-height:1.6}.map{margin-top:25px;border-radius:16px;overflow:hidden;background:#ddd;min-height:170px;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px}
+footer{background:#0b1015;color:#fff;text-align:center;padding:40px 5%}.social{display:flex;justify-content:center;gap:10px;margin:18px 0}.social a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#222;text-decoration:none}
+.cookie{position:fixed;left:18px;right:18px;bottom:18px;background:#fff;color:#111;padding:16px 18px;border-radius:14px;box-shadow:0 10px 40px #0003;display:none;z-index:200;align-items:center;justify-content:space-between;gap:15px}.cookie.show{display:flex}
+@media(max-width:900px){.menu{display:none}.menu.open{display:flex;position:absolute;left:0;right:0;top:78px;background:var(--yellow);padding:20px 5%;flex-direction:column;align-items:flex-start;box-shadow:0 10px 20px #0002}.mobileBtn{display:block}.grid{grid-template-columns:repeat(2,1fr)}.products,.contactGrid{grid-template-columns:1fr 1fr}.aboutInner{grid-template-columns:1fr}.bulgarian{display:none}}
+@media(max-width:600px){.topbar{font-size:11px;justify-content:center}.nav{min-height:68px}.logo{font-size:22px}.tag{font-size:7px}.hero img{min-height:440px;object-fit:cover}.heroOverlay{align-items:flex-end;padding:7% 5%}.hero h1{font-size:40px}.hero p{font-size:16px}.grid,.products,.contactGrid{grid-template-columns:1fr}.offer{display:block}.offer .btn{margin-top:18px}.actions .btn{width:100%}section{padding:48px 5%}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>🇧🇬 Bulgarische Spezialitäten in Bonn</span>
+  <span>🇩🇪 DE &nbsp;|&nbsp; 🇧🇬 BG</span>
+</div>
+
+<header class="header">
+<div class="nav">
+  <a class="logo" href="#start">🛒 MEGA MARKET <span>BONN</span><small class="tag">BULGARISCHE SPEZIALITÄTEN</small></a>
+  <button class="mobileBtn" aria-label="Menü öffnen" onclick="toggleMenu()">☰</button>
+  <nav class="menu" id="menu">
+    <a href="#angebote" onclick="closeMenu()">Angebote</a>
+    <a href="#sortiment" onclick="closeMenu()">Sortiment</a>
+    <a href="#ueber-uns" onclick="closeMenu()">Über uns</a>
+    <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+  </nav>
+  <a class="btn" href="https://www.google.com/maps/search/?api=1&query=MEGA+MARKET+BONN" target="_blank" rel="noopener">📍 Anfahrt</a>
+</div>
+</header>
+
+<main id="start">
+<section class="hero" style="padding:0">
+  <img src="hero.png" alt="MEGA MARKET BONN – bulgarische Spezialitäten">
+  <div class="heroOverlay">
+    <div class="heroCopy">
+      <div class="eyebrow">MEGA MARKET BONN</div>
+      <h1>Bulgarische Spezialitäten.</h1>
+      <p>Frische Produkte · Tradition · Große Auswahl · Faire Preise</p>
+      <div class="actions">
+        <a class="btn" href="#angebote">🔥 Angebote ansehen</a>
+        <a class="btn yellow" href="#kontakt">📍 So findest du uns</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="angebote">
+  <div class="offer">
+    <div><h2>🔥 Jede Woche neue Angebote</h2><p>Schau regelmäßig vorbei – bei uns findest du immer wieder starke Aktionen.</p></div>
+    <a class="btn" href="#kontakt">Jetzt vorbeikommen</a>
+  </div>
+</section>
+
+<section id="sortiment">
+  <div class="heading"><h2>Unser Sortiment</h2><p>Bulgarische Klassiker und beliebte Spezialitäten für deinen Einkauf – von herzhaft bis süß.</p></div>
+  <div class="grid">
+    <article class="card"><div class="visual">🥩</div><h3>Wurst & Fleisch</h3><p>Salami, Würste und weitere bulgarische Fleischspezialitäten.</p></article>
+    <article class="card"><div class="visual">🧀</div><h3>Käse & Milchprodukte</h3><p>Schaf-, Kuh- und Büffelkäse sowie weitere Spezialitäten.</p></article>
+    <article class="card"><div class="visual">🥐</div><h3>Banitsa & Gebäck</h3><p>Bulgarische Teigwaren, Gebäck und traditionelle Spezialitäten.</p></article>
+    <article class="card"><div class="visual">🧊</div><h3>Tiefkühlprodukte</h3><p>Eine große Auswahl beliebter bulgarischer Tiefkühlprodukte.</p></article>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="heading"><h2>Noch mehr zu entdecken</h2><p>Das Sortiment kann je nach Verfügbarkeit variieren.</p></div>
+  <div class="products">
+    <article class="product"><strong>🥫 Konserven & Lutenitsa</strong><p>Traditionelle Produkte für die bulgarische Küche.</p></article>
+    <article class="product"><strong>🍫 Süßwaren & Kekse</strong><p>Beliebte bulgarische Schokolade, Waffeln, Kekse und Süßigkeiten.</p></article>
+    <article class="product"><strong>🥤 Getränke</strong><p>Bulgarische Getränke und Spezialitäten für zuhause.</p></article>
+    <article class="product"><strong>🥬 Obst & Gemüse</strong><p>Frische Produkte und saisonale Angebote.</p></article>
+    <article class="product"><strong>🎁 Bulgarische Souvenirs</strong><p>Geschenkideen und Souvenirs aus Bulgarien.</p></article>
+    <article class="product"><strong>⭐ Wochenangebote</strong><p>Aktuelle Aktionen direkt im Markt entdecken.</p></article>
+  </div>
+</section>
+
+<div class="about" id="ueber-uns">
+<div class="aboutInner">
+  <div><h2>Ein Stück Bulgarien in Bonn 🇧🇬</h2><p>MEGA MARKET BONN steht für bulgarische Lebensmittel, Spezialitäten und Produkte, die viele aus der Heimat kennen und lieben. Komm vorbei, entdecke unser Sortiment und finde deine Lieblingsprodukte.</p><a class="btn" href="#kontakt">Zum Kontakt</a></div>
+  <div class="bulgarian">🇧🇬<br><span style="font-size:22px;font-weight:800">MEGA MARKET BONN</span></div>
+</div>
+</div>
+
+<section id="kontakt">
+  <div class="heading"><h2>Besuch uns</h2><p>Wir freuen uns auf deinen Besuch in Bonn.</p></div>
+  <div class="contactGrid">
+    <div class="contact"><div class="icon">📍</div><h3>Standort</h3><p><strong>MEGA MARKET BONN</strong><br>Bonn, Deutschland</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=MEGA+MARKET+BONN" target="_blank" rel="noopener">Route öffnen</a></div>
+    <div class="contact"><div class="icon">📱</div><h3>Social Media</h3><p>Aktuelle Angebote und Neuigkeiten findest du auf unseren Social-Media-Kanälen.</p><div class="social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="TikTok">♪</a><a href="#" aria-label="Instagram">◎</a></div></div>
+    <div class="contact"><div class="icon">🕐</div><h3>Öffnungszeiten</h3><p><strong>Montag – Samstag</strong><br>Aktuelle Öffnungszeiten bitte über Social Media bzw. direkt im Markt prüfen.<br><br><strong>Sonntag</strong><br>Geschlossen, sofern nicht anders angekündigt.</p></div>
+  </div>
+  <div class="map"><div><strong>📍 MEGA MARKET BONN</strong><br><br>Die genaue Adresse kann hier ergänzt werden. Der Button oben öffnet direkt die Google-Maps-Suche.</div></div>
+</section>
+</main>
+
+<footer>
+  <div style="font-size:25px;font-weight:900">MEGA MARKET BONN</div>
+  <div class="social"><a href="#">f</a><a href="#">♪</a><a href="#">◎</a></div>
+  <div>Bulgarische Spezialitäten und mehr 🇧🇬</div>
+  <small>© 2026 MEGA MARKET BONN</small>
+</footer>
+
+<div class="cookie" id="cookie"><span>Diese Demo-Webseite verwendet keine Tracking-Cookies.</span><button class="btn" onclick="document.getElementById('cookie').style.display='none'">OK</button></div>
+
+<script>
+function toggleMenu(){document.getElementById('menu').classList.toggle('open')}
+function closeMenu(){document.getElementById('menu').classList.remove('open')}
+</script>
+</body>
+</html>
